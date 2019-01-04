@@ -2,6 +2,10 @@ package M8W.OOP.Game.RunnerGame;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+
+import M8W.OOP.Game.Graphics.ImageLoader;
+import M8W.OOP.Game.Graphics.SpriteSheet;
 
 public class MainMenuState extends GameState
 {
@@ -9,9 +13,17 @@ public class MainMenuState extends GameState
 
     private String[] texts = {"Play game", "Exit"};
 
+    private ImageLoader il;
+
+    private BufferedImage background;
+
     MainMenuState(GameStateManager gs)
     {
         super(gs);
+
+        il = new ImageLoader();
+
+        //background = il.load("/main_menu.png");
     }
 
     @Override
@@ -35,6 +47,8 @@ public class MainMenuState extends GameState
     @Override
     public void draw(Graphics g)
     {
+        //g.drawImage(s.imageAt(0, 0, GameScreen.WIDTH, GameScreen.HEIGHT));
+
         for (int i = 0; i < texts.length; i++)
         {
             g.setColor(Color.BLACK);

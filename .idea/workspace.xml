@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc5571f8-992c-446c-9e18-73ab96c74a88" name="Default Changelist" comment="" />
+    <list default="true" id="cc5571f8-992c-446c-9e18-73ab96c74a88" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/M8W/OOP/Game/Graphics/ImageLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RunnerGame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RunnerGame.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RunnerGame/M8W/OOP/Game/RunnerGame/MainMenuState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RunnerGame/M8W/OOP/Game/RunnerGame/MainMenuState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/MainMenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/MainMenuState.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,22 +18,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="969">
-              <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+            <state relative-caret-position="393">
+              <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -38,10 +32,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/GameStateManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+            <state relative-caret-position="323">
+              <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#423#424#0" expanded="true" />
+                <element signature="e#466#467#0" expanded="true" />
                 <element signature="e#516#517#0" expanded="true" />
                 <element signature="e#556#557#0" expanded="true" />
                 <element signature="e#593#594#0" expanded="true" />
@@ -54,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/MainMenuState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="41" column="89" lean-forward="true" selection-start-line="41" selection-start-column="89" selection-end-line="41" selection-end-column="89" />
+            <state relative-caret-position="544">
+              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,10 +60,27 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/LevelState.java">
+        <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/Graphics/SpriteSheet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="459">
+              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#580#581#0" expanded="true" />
+                <element signature="e#645#646#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/Graphics/ImageLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,6 +154,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -154,8 +170,10 @@
         <option value="$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/GameObject.java" />
         <option value="$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/Transform.java" />
         <option value="$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/Game.java" />
-        <option value="$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/GameScreen.java" />
         <option value="$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/Player.java" />
+        <option value="$PROJECT_DIR$/src/M8W/OOP/Game/Graphics/Spritesheet.java" />
+        <option value="$PROJECT_DIR$/src/M8W/OOP/Game/Graphics/ImageLoader.java" />
+        <option value="$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/GameScreen.java" />
         <option value="$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/MainMenuState.java" />
       </list>
     </option>
@@ -166,12 +184,14 @@
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -183,26 +203,46 @@
             <path>
               <item name="RunnerGame" type="b2602c69:ProjectViewProjectNode" />
               <item name="RunnerGame" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RunnerGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RunnerGame" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RunnerGame" type="b2602c69:ProjectViewProjectNode" />
               <item name="RunnerGame" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RunnerGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RunnerGame" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Game" type="462c0819:PsiDirectoryNode" />
+              <item name="Graphics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RunnerGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RunnerGame" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Game" type="462c0819:PsiDirectoryNode" />
               <item name="RunnerGame" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545572430385" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Assets" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -251,8 +291,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25500527" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25500527" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -261,7 +302,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.26435536" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.26435536" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -269,7 +310,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.329718" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -313,36 +354,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/GameScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/GameStateManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#516#517#0" expanded="true" />
-            <element signature="e#556#557#0" expanded="true" />
-            <element signature="e#593#594#0" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/LevelState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/main_menu.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/Transform.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -394,10 +414,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/GameStateManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
+            <element signature="e#466#467#0" expanded="true" />
+            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#556#557#0" expanded="true" />
+            <element signature="e#593#594#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/GameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/Graphics/ImageLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/Graphics/SpriteSheet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/M8W/OOP/Game/RunnerGame/MainMenuState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="41" column="89" lean-forward="true" selection-start-line="41" selection-start-column="89" selection-end-line="41" selection-end-column="89" />
+        <state relative-caret-position="544">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -444,6 +512,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -480,6 +549,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Assets</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
