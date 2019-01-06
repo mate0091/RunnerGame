@@ -31,6 +31,20 @@ public class Transform
         this.y += y;
     }
 
+    public void translate(Transform transform)
+    {
+        this.x += transform.x;
+        this.y += transform.y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
     public void set(int x, int y)
     {
         this.x = x;

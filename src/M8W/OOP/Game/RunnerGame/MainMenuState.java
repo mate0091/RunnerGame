@@ -30,23 +30,12 @@ public class MainMenuState extends GameState
     @Override
     public void update()
     {
-        if(currentChoice == 2)
-        {
-            currentChoice = 1;
-        }
-
-        else if(currentChoice == -1)
-        {
-            //set to beginning
-            currentChoice = 0;
-        }
-
-        if(Input.getKeyDown(KeyEvent.VK_DOWN))
+        if(Input.getKeyDown(KeyEvent.VK_DOWN) && currentChoice != 1)
         {
             currentChoice++;
         }
 
-        else if(Input.getKeyDown(KeyEvent.VK_UP))
+        else if(Input.getKeyDown(KeyEvent.VK_UP) && currentChoice != 0)
         {
             currentChoice--;
         }
@@ -62,11 +51,6 @@ public class MainMenuState extends GameState
             {
                 System.exit(0);
             }
-        }
-
-        if(Input.getKeyDown(KeyEvent.VK_ESCAPE))
-        {
-            System.exit(0);
         }
     }
 
@@ -86,5 +70,9 @@ public class MainMenuState extends GameState
             g.setFont(new Font("Arial", Font.PLAIN, 35));
             g.drawString(texts[i], GameScreen.WIDTH / 2 - 75, GameScreen.HEIGHT / 2 + 135 + 75 * i);
         }
+
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("Arial", Font.BOLD, 18));
+        g.drawString("Quit anytime by pressing ESC", GameScreen.WIDTH/2 - 150, GameScreen.HEIGHT/2 + 390);
     }
 }
