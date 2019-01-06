@@ -1,8 +1,6 @@
 package M8W.OOP.Game.Graphics;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 public class SpriteSheet
 {
@@ -15,14 +13,7 @@ public class SpriteSheet
 
     public SpriteSheet(String path)
     {
-        try
-        {
-            this.image = ImageIO.read(getClass().getResource(path));
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        this.image = new ImageLoader().load(path);
     }
 
     public BufferedImage imageAt(int c, int r, int w, int h)

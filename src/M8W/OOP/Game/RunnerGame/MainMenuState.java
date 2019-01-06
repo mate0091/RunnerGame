@@ -1,11 +1,10 @@
 package M8W.OOP.Game.RunnerGame;
 
+import M8W.OOP.Game.Graphics.ImageLoader;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-
-import M8W.OOP.Game.Graphics.ImageLoader;
-import M8W.OOP.Game.Graphics.SpriteSheet;
 
 public class MainMenuState extends GameState
 {
@@ -13,33 +12,60 @@ public class MainMenuState extends GameState
 
     private String[] texts = {"Play game", "Exit"};
 
-    private ImageLoader il;
+    private Image background;
 
-    private BufferedImage background;
+    private int currentChoice = 0;
 
     MainMenuState(GameStateManager gs)
     {
         super(gs);
 
-        il = new ImageLoader();
+        ImageLoader il = new ImageLoader();
 
-        //background = il.load("/main_menu.png");
+        BufferedImage temp = il.load("/main_menu.png");
+
+        background = temp.getScaledInstance(GameScreen.WIDTH, GameScreen.HEIGHT, Image.SCALE_DEFAULT);
     }
 
     @Override
     public void update()
     {
-        if(Input.getKeyDown(KeyEvent.VK_SPACE))
+        if(currentChoice == 2)
         {
-            System.out.println("SPACE PRESSED");
-
-            gs.changeState(new LevelState(gs));
+            currentChoice = 1;
         }
 
-        else if(Input.getKeyDown(KeyEvent.VK_ENTER))
+        else if(currentChoice == -1)
         {
-            System.out.println("EXIT");
+            //set to beginning
+            currentChoice = 0;
+        }
 
+        if(Input.getKeyDown(KeyEvent.VK_DOWN))
+        {
+            currentChoice++;
+        }
+
+        else if(Input.getKeyDown(KeyEvent.VK_UP))
+        {
+            currentChoice--;
+        }
+
+        if(Input.getKeyDown(KeyEvent.VK_ENTER))
+        {
+            if(currentChoice == 0)
+            {
+                gs.changeState(new LevelState(gs));
+            }
+
+            else if(currentChoice == 1)
+            {
+                System.exit(0);
+            }
+        }
+
+        if(Input.getKeyDown(KeyEvent.VK_ESCAPE))
+        {
             System.exit(0);
         }
     }
@@ -47,13 +73,18 @@ public class MainMenuState extends GameState
     @Override
     public void draw(Graphics g)
     {
-        //g.drawImage(s.imageAt(0, 0, GameScreen.WIDTH, GameScreen.HEIGHT));
+        g.drawImage(background, 0, 0, null);
 
         for (int i = 0; i < texts.length; i++)
         {
-            g.setColor(Color.BLACK);
-            g.setFont(new Font("Arial", Font.PLAIN, 50));
-            g.drawString(texts[i], GameScreen.WIDTH / 2 - 125, GameScreen.HEIGHT / 2 - 100 + 150 * i);
+            if(i == currentChoice)
+            {
+                g.setColor(Color.GREEN);
+            }
+
+            else g.setColor(Color.WHITE);
+            g.setFont(new Font("Arial", Font.PLAIN, 35));
+            g.drawString(texts[i], GameScreen.WIDTH / 2 - 75, GameScreen.HEIGHT / 2 + 135 + 75 * i);
         }
     }
 }

@@ -1,7 +1,6 @@
 package M8W.OOP.Game.RunnerGame;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 public abstract class GameObject
 {

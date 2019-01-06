@@ -7,7 +7,7 @@ import static java.awt.event.KeyEvent.*;
 
 public class Input implements KeyListener
 {
-    public static boolean[] keys = {false, false, false, false, false};
+    public static boolean[] keys = {false, false, false, false, false, false};
 
     @Override
     public void keyTyped(KeyEvent e) {}
@@ -29,6 +29,10 @@ public class Input implements KeyListener
             case VK_ENTER:
                 keys[3] = true;
                 break;
+            case VK_ESCAPE:
+                keys[4] = true;
+                break;
+
                 default:
                     break;
         }
@@ -50,6 +54,9 @@ public class Input implements KeyListener
                 break;
             case VK_ENTER:
                 keys[3] = false;
+                break;
+            case VK_ESCAPE:
+                keys[4] = false;
                 break;
             default:
                 break;
@@ -73,6 +80,9 @@ public class Input implements KeyListener
                 break;
             case VK_ENTER:
                 current = keys[3];
+                break;
+            case VK_ESCAPE:
+                current = keys[4];
                 break;
             default:
                 break;

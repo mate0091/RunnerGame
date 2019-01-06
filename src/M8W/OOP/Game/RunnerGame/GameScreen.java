@@ -2,6 +2,7 @@ package M8W.OOP.Game.RunnerGame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class GameScreen extends JPanel implements Runnable
 {
@@ -61,6 +62,11 @@ public class GameScreen extends JPanel implements Runnable
 
     private void update()
     {
+        if(Input.getKeyDown(KeyEvent.VK_ESCAPE))
+        {
+            System.exit(0);
+        }
+
         stateManager.update();
     }
 
