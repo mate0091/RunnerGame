@@ -1,28 +1,57 @@
 package M8W.OOP.Game.RunnerGame;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class LevelState extends GameState
 {
     private Player p;
-    private Obstacle o;
+    private ArrayList<Obstacle> obstacles;
+
+    private Spawner spawner;
 
     LevelState(GameStateManager gsm)
     {
         super(gsm);
 
         p = new Player();
-        o = new Obstacle();
+        obstacles = new ArrayList<Obstacle>();
+
+        spawner = new Spawner(() ->{
+            //spawn enemies
+            obstacles.add(new Obstacle());
+        }, 20, 2);
     }
     @Override
     void update()
     {
         //handle collision with other objects here
         p.collideWithGround(0, 600, GameScreen.WIDTH, 600);
-        obstacleCollision(o);
+
+        if(!obstacles.isEmpty())
+        for(Obstacle o : obstacles)
+        {
+            obstacleCollision(o);
+        }
 
         p.update();
-        o.update();
+
+        if(!obstacles.isEmpty())
+        for (Obstacle i : obstacles) i.update();
+
+        if(!obstacles.isEmpty())
+            for (int i = 0; i < obstacles.size(); i++)
+            {
+                if(obstacles.get(i) != null)
+                {
+                    if (obstacles.get(i).getBounds().x + obstacles.get(i).getBounds().width < -100) {
+                        obstacles.remove(i);
+                    }
+                }
+            }
+
+        spawner.update();
+
     }
 
     void obstacleCollision(GameObject other)
@@ -38,7 +67,13 @@ public class LevelState extends GameState
     {
         g.setColor(Color.BLACK);
         g.drawLine(0, 600, GameScreen.WIDTH, 600);
+
         p.draw(g);
-        o.draw(g);
+
+        if(!obstacles.isEmpty())
+        for (Obstacle i : obstacles)
+            i.draw(g);
+
+        spawner.draw(g);
     }
 }

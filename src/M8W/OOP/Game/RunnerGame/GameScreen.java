@@ -4,20 +4,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-public class GameScreen extends JPanel implements Runnable
-{
+public class GameScreen extends JPanel implements Runnable {
     public static final int WIDTH = 800;
     public static final int HEIGHT = 800;
+    public static final int FPS = 60;
 
-    private long targetTime = 1000 / 60;
+    public static final long targetTime = 1000 / FPS;
 
     private Thread th; //thread to limit framerate
     private boolean isRunning = false;
     private GameStateManager stateManager;
     private Input input;
 
-    public GameScreen()
-    {
+    public GameScreen() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setVisible(true);
         setFocusable(true);
@@ -28,42 +27,35 @@ public class GameScreen extends JPanel implements Runnable
     }
 
     @Override
-    public void run()
-    {
+    public void run() {
         input = new Input();
         this.addKeyListener(input);
-
         stateManager = new GameStateManager();
 
-        while(isRunning)
-        {
+        while (isRunning) {
             //Game loop
             //get current time and last time and do the subtraction
             long now = System.nanoTime();
 
             update();
             repaint();
+            //paintComponent(this.getGraphics());
 
             long elapsed = (System.nanoTime() - now) / 1000000;
             long wait = targetTime - elapsed;
 
-            if(wait < 0) wait = 0;
+            if (wait < 0) wait = 0;
 
-            try
-            {
+            try {
                 Thread.sleep(wait);
-            }
-            catch (InterruptedException e)
-            {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void update()
-    {
-        if(Input.getKeyDown(KeyEvent.VK_ESCAPE))
-        {
+    private void update() {
+        if (Input.getKeyDown(KeyEvent.VK_ESCAPE)) {
             System.exit(0);
         }
 
@@ -71,16 +63,15 @@ public class GameScreen extends JPanel implements Runnable
     }
 
     @Override
-    protected void paintComponent(Graphics g)
-    {
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.clearRect(0, 0, WIDTH, HEIGHT);
 
         stateManager.paintComponent(g);
     }
 
-    public boolean getIsRunning()
+    public static float deltaTimeSeconds()
     {
-        return isRunning;
+        return targetTime / (1000f);
     }
 }

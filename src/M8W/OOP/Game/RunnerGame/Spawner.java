@@ -4,24 +4,46 @@ import java.awt.*;
 
 public class Spawner extends GameObject
 {
-    private long startTime = 1000000000L;
+    //use this to specify after how many seconds the first obstacle appears
 
-    private long time;
-    private long decreaseTime;
-    private long minTime = 300000000L;
+    private int constantSpeedup;
+    private int deltaBetweenObstacles;
 
-    Spawner()
+    private Runnable ObstacleSpawner;
+
+    private Timer timer;
+
+    public Spawner(Runnable ObstacleSpawner, int delta, int speedup)
     {
         super();
+
+        this.ObstacleSpawner = ObstacleSpawner;
+
+        deltaBetweenObstacles = delta;
+        constantSpeedup = speedup;
+
+        timer = new Timer(deltaBetweenObstacles, Timer.Type.Once, () -> ObstacleSpawner.run());
     }
 
     public void update()
     {
         super.update();
+
+        timer.update();
+
+        if(timer.isDone())
+        {
+            if(deltaBetweenObstacles > 10)
+            {
+                deltaBetweenObstacles -= constantSpeedup;
+            }
+
+            timer = new Timer(deltaBetweenObstacles, Timer.Type.Once, () -> ObstacleSpawner.run());
+        }
     }
 
     public void draw(Graphics g)
     {
-
+        timer.draw(g);
     }
 }
