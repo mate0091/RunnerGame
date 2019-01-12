@@ -1,4 +1,6 @@
-package M8W.OOP.Game.RunnerGame;
+package M8W.OOP.Game.Engine;
+
+import M8W.OOP.Game.RunnerGame.ScoreManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -55,10 +57,6 @@ public class GameScreen extends JPanel implements Runnable {
     }
 
     private void update() {
-        if (Input.getKeyDown(KeyEvent.VK_ESCAPE)) {
-            System.exit(0);
-        }
-
         stateManager.update();
     }
 

@@ -1,5 +1,8 @@
 package M8W.OOP.Game.RunnerGame;
 
+import M8W.OOP.Game.Engine.GameObject;
+import M8W.OOP.Game.Engine.Timer;
+
 import java.awt.*;
 
 public class Spawner extends GameObject

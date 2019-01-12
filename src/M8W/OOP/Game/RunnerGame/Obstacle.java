@@ -1,17 +1,21 @@
 package M8W.OOP.Game.RunnerGame;
 
+import M8W.OOP.Game.Engine.GameObject;
+import M8W.OOP.Game.Engine.GameScreen;
+import M8W.OOP.Game.Engine.Transform;
+
 import java.awt.*;
 
 public class Obstacle extends GameObject
 {
     private Transform velocity;
 
-    Obstacle()
+    Obstacle(Transform velocity)
     {
         super();
         position.set(GameScreen.WIDTH + 20, 550);
         collisionBox.setLocation(GameScreen.WIDTH + 20, 550);
-        velocity = new Transform(-5, 0);
+        this.velocity = velocity;
     }
 
     public void update()

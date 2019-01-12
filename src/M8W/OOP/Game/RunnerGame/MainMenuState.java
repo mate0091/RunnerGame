@@ -1,6 +1,7 @@
 package M8W.OOP.Game.RunnerGame;
 
-import M8W.OOP.Game.Graphics.ImageLoader;
+import M8W.OOP.Game.Engine.*;
+import M8W.OOP.Game.Graphics.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -16,7 +17,7 @@ public class MainMenuState extends GameState
 
     private int currentChoice = 0;
 
-    MainMenuState(GameStateManager gs)
+    public MainMenuState(GameStateManager gs)
     {
         super(gs);
 
@@ -27,7 +28,6 @@ public class MainMenuState extends GameState
         background = temp.getScaledInstance(GameScreen.WIDTH, GameScreen.HEIGHT, Image.SCALE_DEFAULT);
     }
 
-    @Override
     public void update()
     {
         if(Input.getKeyDown(KeyEvent.VK_DOWN) && currentChoice != 1)
@@ -54,7 +54,7 @@ public class MainMenuState extends GameState
         }
     }
 
-    @Override
+
     public void draw(Graphics g)
     {
         g.drawImage(background, 0, 0, null);
@@ -68,11 +68,14 @@ public class MainMenuState extends GameState
 
             else g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", Font.PLAIN, 35));
-            g.drawString(texts[i], GameScreen.WIDTH / 2 - 75, GameScreen.HEIGHT / 2 + 135 + 75 * i);
+            g.drawString(texts[i], GameScreen.WIDTH / 2 - 75, GameScreen.HEIGHT / 2 + 220 + 75 * i);
         }
 
         g.setColor(Color.BLACK);
         g.setFont(new Font("Arial", Font.BOLD, 18));
         g.drawString("Quit anytime by pressing ESC", GameScreen.WIDTH/2 - 150, GameScreen.HEIGHT/2 + 390);
+
+        g.setFont(new Font("Arial", Font.BOLD, 35));
+        g.drawString("Highscore: " + ScoreManager.getInstance().getHighScore(), GameScreen.WIDTH/2 - 100, GameScreen.HEIGHT/2 + 120);
     }
 }

@@ -1,5 +1,9 @@
 package M8W.OOP.Game.RunnerGame;
 
+import M8W.OOP.Game.Engine.GameObject;
+import M8W.OOP.Game.Engine.Input;
+import M8W.OOP.Game.Engine.Transform;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
@@ -64,12 +68,6 @@ public class Player extends GameObject
 
         g2.setColor(Color.BLUE);
         g2.fillRect(position.getX(), position.getY(), 50, 50);
-
-        g2.setColor(Color.BLACK);
-        g2.setFont(new Font("Arial", Font.PLAIN, 25));
-        g2.drawString("Position: ", 0, 25);
-        g2.drawString(Integer.toString(position.getX()), 100, 25);
-        g2.drawString(Integer.toString(position.getY()), 150, 25);
 
         g2.setColor(Color.RED);
         g2.draw(collisionBox);

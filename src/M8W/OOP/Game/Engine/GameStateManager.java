@@ -1,4 +1,7 @@
-package M8W.OOP.Game.RunnerGame;
+package M8W.OOP.Game.Engine;
+
+import M8W.OOP.Game.Engine.GameState;
+import M8W.OOP.Game.RunnerGame.MainMenuState;
 
 import java.util.Stack;
 import java.awt.Graphics;

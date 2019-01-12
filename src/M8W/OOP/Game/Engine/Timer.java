@@ -1,6 +1,7 @@
-package M8W.OOP.Game.RunnerGame;
+package M8W.OOP.Game.Engine;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
+import M8W.OOP.Game.Engine.GameObject;
+import M8W.OOP.Game.Engine.GameScreen;
 
 import java.awt.*;
 
