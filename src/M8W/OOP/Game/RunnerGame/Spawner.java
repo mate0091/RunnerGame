@@ -11,6 +11,7 @@ public class Spawner extends GameObject
 
     private int constantSpeedup;
     private int deltaBetweenObstacles;
+    private int startDelta;
 
     private Runnable ObstacleSpawner;
 

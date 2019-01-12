@@ -6,14 +6,21 @@ import M8W.OOP.Game.RunnerGame.MainMenuState;
 import java.util.Stack;
 import java.awt.Graphics;
 
-public class GameStateManager
+public final class GameStateManager
 {
     private Stack<GameState> statesLoaded;
 
-    public GameStateManager()
+    private static final GameStateManager INSTANCE = new GameStateManager();
+
+    private GameStateManager()
     {
         statesLoaded = new Stack<GameState>();
-        this.loadState(new MainMenuState(this));
+        loadState(new MainMenuState());
+    }
+
+    public static GameStateManager getInstance()
+    {
+        return INSTANCE;
     }
 
     public void update()

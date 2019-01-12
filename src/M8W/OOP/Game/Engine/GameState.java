@@ -4,11 +4,8 @@ import java.awt.*;
 
 public abstract class GameState
 {
-    protected GameStateManager gs;
-
-    public GameState(GameStateManager gs)
+    public GameState()
     {
-        this.gs = gs;
     }
 
     public abstract void update();

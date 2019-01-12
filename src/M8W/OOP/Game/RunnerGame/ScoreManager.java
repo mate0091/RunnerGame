@@ -6,11 +6,13 @@ public final class ScoreManager
 {
     private int score;
     private int highScore;
+    private boolean newHighScoreFlag;
 
-    private static ScoreManager INSTANCE = new ScoreManager();
+    private static final ScoreManager INSTANCE = new ScoreManager();
 
     private ScoreManager()
     {
+        newHighScoreFlag = false;
         score = 0;
 
         try{
@@ -33,6 +35,12 @@ public final class ScoreManager
     public void incrementScore()
     {
         score++;
+
+        if(score > highScore)
+        {
+            highScore = score;
+            newHighScoreFlag = true;
+        }
     }
 
     public int getScore()
@@ -52,11 +60,6 @@ public final class ScoreManager
 
     public void saveScore()
     {
-        if(score > highScore)
-        {
-            highScore = score;
-        }
-
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter(new File("PlayerSave.txt")));
             writer.write(Integer.toString(highScore));
@@ -66,5 +69,10 @@ public final class ScoreManager
         {
             e.printStackTrace();
         }
+    }
+
+    public boolean newHighScoreObtained()
+    {
+        return newHighScoreFlag;
     }
 }

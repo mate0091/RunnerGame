@@ -5,6 +5,8 @@ import M8W.OOP.Game.Engine.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class LevelState extends GameState
 {
@@ -13,9 +15,9 @@ public class LevelState extends GameState
 
     private Spawner spawner;
 
-    public LevelState(GameStateManager gsm)
+    public LevelState()
     {
-        super(gsm);
+        super();
 
         ScoreManager.getInstance().resetScore();
         p = new Player();
@@ -47,20 +49,27 @@ public class LevelState extends GameState
         if(!obstacles.isEmpty())
             for (int i = 0; i < obstacles.size(); i++)
             {
-                if(obstacles.get(i) != null)
+                Obstacle current = obstacles.get(i);
+
+                if(current != null)
                 {
-                    if (obstacles.get(i).getBounds().x + obstacles.get(i).getBounds().width < -100)
+                    if (current.getBounds().x + current.getBounds().width < 0)
+                    {
+                        obstacles.remove(i);
+                    }
+
+                    if(current.getBounds().x < p.getBounds().x && !current.wasJumpedOver)
                     {
                         ScoreManager.getInstance().incrementScore();
-                        obstacles.remove(i);
+                        current.wasJumpedOver = true;
                     }
                 }
             }
 
         spawner.update();
 
-        if (Input.getKeyDown(KeyEvent.VK_ESCAPE)) {
-            gs.changeState(new MainMenuState(gs));
+        if (Input.getInstance().getKeyDown(KeyEvent.VK_ESCAPE)) {
+            GameStateManager.getInstance().changeState(new MainMenuState());
         }
     }
 
@@ -69,7 +78,7 @@ public class LevelState extends GameState
         if(p.getBounds().intersects(other.getBounds()))
         {
             ScoreManager.getInstance().saveScore();
-            gs.changeState(new MainMenuState(gs));
+            GameStateManager.getInstance().changeState(new MainMenuState());
         }
     }
 

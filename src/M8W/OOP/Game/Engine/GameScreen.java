@@ -1,10 +1,7 @@
 package M8W.OOP.Game.Engine;
 
-import M8W.OOP.Game.RunnerGame.ScoreManager;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
 
 public class GameScreen extends JPanel implements Runnable {
     public static final int WIDTH = 800;
@@ -14,9 +11,7 @@ public class GameScreen extends JPanel implements Runnable {
     public static final long targetTime = 1000 / FPS;
 
     private Thread th; //thread to limit framerate
-    private boolean isRunning = false;
-    private GameStateManager stateManager;
-    private Input input;
+    private boolean isRunning;
 
     public GameScreen() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -30,9 +25,7 @@ public class GameScreen extends JPanel implements Runnable {
 
     @Override
     public void run() {
-        input = new Input();
-        this.addKeyListener(input);
-        stateManager = new GameStateManager();
+        this.addKeyListener(Input.getInstance());
 
         while (isRunning) {
             //Game loop
@@ -41,7 +34,6 @@ public class GameScreen extends JPanel implements Runnable {
 
             update();
             repaint();
-            //paintComponent(this.getGraphics());
 
             long elapsed = (System.nanoTime() - now) / 1000000;
             long wait = targetTime - elapsed;
@@ -57,7 +49,7 @@ public class GameScreen extends JPanel implements Runnable {
     }
 
     private void update() {
-        stateManager.update();
+        GameStateManager.getInstance().update();
     }
 
     @Override
@@ -65,7 +57,7 @@ public class GameScreen extends JPanel implements Runnable {
         super.paintComponent(g);
         g.clearRect(0, 0, WIDTH, HEIGHT);
 
-        stateManager.paintComponent(g);
+        GameStateManager.getInstance().paintComponent(g);
     }
 
     public static float deltaTimeSeconds()

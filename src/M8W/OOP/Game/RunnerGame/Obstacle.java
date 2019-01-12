@@ -9,6 +9,7 @@ import java.awt.*;
 public class Obstacle extends GameObject
 {
     private Transform velocity;
+    public boolean wasJumpedOver;
 
     Obstacle(Transform velocity)
     {
@@ -16,6 +17,7 @@ public class Obstacle extends GameObject
         position.set(GameScreen.WIDTH + 20, 550);
         collisionBox.setLocation(GameScreen.WIDTH + 20, 550);
         this.velocity = velocity;
+        wasJumpedOver = false;
     }
 
     public void update()

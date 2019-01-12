@@ -9,42 +9,36 @@ import java.awt.image.BufferedImage;
 
 public class MainMenuState extends GameState
 {
-    private int selection = 0;
-
     private String[] texts = {"Play game", "Exit"};
 
     private Image background;
 
     private int currentChoice = 0;
 
-    public MainMenuState(GameStateManager gs)
+    public MainMenuState()
     {
-        super(gs);
+        super();
 
-        ImageLoader il = new ImageLoader();
-
-        BufferedImage temp = il.load("/main_menu.png");
-
-        background = temp.getScaledInstance(GameScreen.WIDTH, GameScreen.HEIGHT, Image.SCALE_DEFAULT);
+        background = new ImageLoader().load("/main_menu.png").getScaledInstance(GameScreen.WIDTH, GameScreen.HEIGHT, Image.SCALE_DEFAULT);
     }
 
     public void update()
     {
-        if(Input.getKeyDown(KeyEvent.VK_DOWN) && currentChoice != 1)
+        if(Input.getInstance().getKeyDown(KeyEvent.VK_DOWN) && currentChoice != 1)
         {
             currentChoice++;
         }
 
-        else if(Input.getKeyDown(KeyEvent.VK_UP) && currentChoice != 0)
+        else if(Input.getInstance().getKeyDown(KeyEvent.VK_UP) && currentChoice != 0)
         {
             currentChoice--;
         }
 
-        if(Input.getKeyDown(KeyEvent.VK_ENTER))
+        if(Input.getInstance().getKeyDown(KeyEvent.VK_ENTER))
         {
             if(currentChoice == 0)
             {
-                gs.changeState(new LevelState(gs));
+                GameStateManager.getInstance().changeState(new LevelState());
             }
 
             else if(currentChoice == 1)

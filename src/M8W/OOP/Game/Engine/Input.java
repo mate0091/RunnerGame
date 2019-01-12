@@ -5,9 +5,49 @@ import java.awt.event.KeyListener;
 
 import static java.awt.event.KeyEvent.*;
 
-public class Input implements KeyListener
+public final class Input implements KeyListener
 {
-    public static boolean[] keys = {false, false, false, false, false, false};
+    private class Key
+    {
+        private boolean down;
+
+        public Key()
+        {
+            down = false;
+        }
+
+        public boolean isDown()
+        {
+            return down;
+        }
+
+        public void trigger(boolean value)
+        {
+            down = value;
+        }
+    }
+
+    private static final Input INSTANCE = new Input();
+
+    private Key spaceKey;
+    private Key upKey;
+    private Key downKey;
+    private Key enterKey;
+    private Key escapeKey;
+
+    private Input()
+    {
+        spaceKey = new Key();
+        upKey = new Key();
+        downKey = new Key();
+        enterKey = new Key();
+        escapeKey = new Key();
+    }
+
+    public static Input getInstance()
+    {
+        return INSTANCE;
+    }
 
     @Override
     public void keyTyped(KeyEvent e) {}
@@ -18,21 +58,20 @@ public class Input implements KeyListener
         switch (e.getKeyCode())
         {
             case VK_SPACE:
-                keys[0] = true;
+                spaceKey.trigger(true);
                 break;
             case VK_UP:
-                keys[1] = true;
+                upKey.trigger(true);
                 break;
             case VK_DOWN:
-                keys[2] = true;
+                downKey.trigger(true);
                 break;
             case VK_ENTER:
-                keys[3] = true;
+                enterKey.trigger(true);
                 break;
             case VK_ESCAPE:
-                keys[4] = true;
+                escapeKey.trigger(true);
                 break;
-
                 default:
                     break;
         }
@@ -44,45 +83,45 @@ public class Input implements KeyListener
         switch (e.getKeyCode())
         {
             case VK_SPACE:
-                keys[0] = false;
+                spaceKey.trigger(false);
                 break;
             case VK_UP:
-                keys[1] = false;
+                upKey.trigger(false);
                 break;
             case VK_DOWN:
-                keys[2] = false;
+                downKey.trigger(false);
                 break;
             case VK_ENTER:
-                keys[3] = false;
+                enterKey.trigger(false);
                 break;
             case VK_ESCAPE:
-                keys[4] = false;
+                escapeKey.trigger(false);
                 break;
             default:
                 break;
         }
     }
 
-    public static boolean getKeyDown(int value)
+    public boolean getKeyDown(int value)
     {
         boolean current = false;
 
         switch (value)
         {
             case VK_SPACE:
-                current = keys[0];
+                current = spaceKey.isDown();
                 break;
             case VK_UP:
-                current = keys[1];
+                current = upKey.isDown();
                 break;
             case VK_DOWN:
-                current = keys[2];
+                current = downKey.isDown();
                 break;
             case VK_ENTER:
-                current = keys[3];
+                current = enterKey.isDown();
                 break;
             case VK_ESCAPE:
-                current = keys[4];
+                current = escapeKey.isDown();
                 break;
             default:
                 break;
