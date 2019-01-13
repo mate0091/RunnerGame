@@ -14,8 +14,7 @@ import java.awt.event.KeyEvent;
 public class Player extends GameObject
 {
     private static final int MAX_SPEED = 13;
-    private int gravity = 2;
-    public boolean jumping = false;
+    private int gravity = 3;
     public boolean grounded = false;
     private Transform velocity;
 

@@ -2,52 +2,73 @@ package M8W.OOP.Game.RunnerGame;
 
 import M8W.OOP.Game.Engine.GameObject;
 import M8W.OOP.Game.Engine.Timer;
+import M8W.OOP.Game.Engine.Transform;
 
 import java.awt.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Spawner extends GameObject
 {
     //use this to specify after how many seconds the first obstacle appears
 
-    private int constantSpeedup;
-    private int deltaBetweenObstacles;
-    private int startDelta;
-
-    private Runnable ObstacleSpawner;
+    private float deltaBetweenObstacles;
+    private float constantSpeedup;
+    private float currentSpeed;
+    private boolean isDone;
+    private float deltaSpeedup;
 
     private Timer timer;
 
-    public Spawner(Runnable ObstacleSpawner, int delta, int speedup)
+    public Spawner(int startDelta, float delta, float constantSpeedup, int startSpeed, float deltaSpeedup)
     {
         super();
 
-        this.ObstacleSpawner = ObstacleSpawner;
+        this.constantSpeedup = constantSpeedup;
+        this.deltaBetweenObstacles = delta;
+        this.currentSpeed = startSpeed;
+        this.deltaSpeedup = deltaSpeedup;
 
-        deltaBetweenObstacles = delta;
-        constantSpeedup = speedup;
+        this.isDone = false;
 
-        timer = new Timer(deltaBetweenObstacles, Timer.Type.Once, () -> ObstacleSpawner.run());
+        timer = new Timer(startDelta);
     }
 
     public void update()
     {
-        super.update();
+        isDone = false;
 
+        super.update();
         timer.update();
 
         if(timer.isDone())
         {
-            if(deltaBetweenObstacles > 10)
-            {
-                deltaBetweenObstacles -= constantSpeedup;
-            }
+            //message LevelState to add the generated obstacle to the level
+            isDone = true;
 
-            timer = new Timer(deltaBetweenObstacles, Timer.Type.Once, () -> ObstacleSpawner.run());
+            if(currentSpeed < 20)
+                currentSpeed += constantSpeedup;
+
+            if(deltaBetweenObstacles > 3.5f)
+                deltaBetweenObstacles -=  (deltaSpeedup);
+
+            timer = new Timer((int) (deltaBetweenObstacles));
         }
     }
 
     public void draw(Graphics g)
     {
-        timer.draw(g);
+
+    }
+
+    public boolean getIsDone() {
+        return isDone;
+    }
+
+    public Timer getTimer() {
+        return timer;
+    }
+
+    public float getCurrentSpeed() {
+        return currentSpeed;
     }
 }

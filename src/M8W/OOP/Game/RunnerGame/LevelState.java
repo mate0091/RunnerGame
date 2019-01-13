@@ -6,7 +6,6 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class LevelState extends GameState
 {
@@ -15,18 +14,20 @@ public class LevelState extends GameState
 
     private Spawner spawner;
 
+    private Random random;
+
     public LevelState()
     {
         super();
 
+        random = new Random();
+
         ScoreManager.getInstance().resetScore();
+
         p = new Player();
         obstacles = new ArrayList<Obstacle>();
 
-        spawner = new Spawner(() ->{
-            //spawn enemies
-            obstacles.add(new Obstacle(new Transform(-5, 0)));
-        }, 20, 2);
+        spawner = new Spawner(20, 20f, 0.2f, 7, 0.2f);
     }
 
     @Override
@@ -34,6 +35,8 @@ public class LevelState extends GameState
     {
         //handle collision with other objects here
         p.collideWithGround(0, 600, GameScreen.WIDTH, 600);
+
+        spawner.update();
 
         if(!obstacles.isEmpty())
         for(Obstacle o : obstacles)
@@ -66,7 +69,31 @@ public class LevelState extends GameState
                 }
             }
 
-        spawner.update();
+        if(spawner.getIsDone())
+        {
+            Obstacle o = null;
+
+            System.out.println(spawner.getCurrentSpeed());
+
+            int obstacleIndex = random.nextInt(3);
+
+            switch (obstacleIndex)
+            {
+                case 0:
+                    o = new HighObstacle(new Transform((int) (-spawner.getCurrentSpeed()), 0));
+                    break;
+                case 1:
+                    o = new MidObstacle(new Transform((int) (-spawner.getCurrentSpeed()), 0));
+                    break;
+                case 2:
+                    o = new LowObstacle(new Transform((int) (-spawner.getCurrentSpeed()), 0));
+                    break;
+                default:
+                    break;
+            }
+
+            obstacles.add(o);
+        }
 
         if (Input.getInstance().getKeyDown(KeyEvent.VK_ESCAPE)) {
             GameStateManager.getInstance().changeState(new MainMenuState());
@@ -89,6 +116,8 @@ public class LevelState extends GameState
         g.setFont(new Font("Arial", Font.PLAIN, 35));
         g.drawString("Score: " + ScoreManager.getInstance().getScore(), 64, 32);
         g.drawLine(0, 600, GameScreen.WIDTH, 600);
+
+        spawner.getTimer().draw(g);
 
         p.draw(g);
 

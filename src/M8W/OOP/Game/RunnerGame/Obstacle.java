@@ -8,10 +8,10 @@ import java.awt.*;
 
 public class Obstacle extends GameObject
 {
-    private Transform velocity;
+    protected Transform velocity;
     public boolean wasJumpedOver;
 
-    Obstacle(Transform velocity)
+    public Obstacle(Transform velocity)
     {
         super();
         position.set(GameScreen.WIDTH + 20, 550);
