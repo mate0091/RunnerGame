@@ -35,7 +35,7 @@ public class Player extends GameObject
 
     private void loadAnimation()
     {
-        SpriteSheet sheet = new SpriteSheet("/player.png");
+        SpriteSheet sheet = new SpriteSheet("/Player.png");
         AnimationSprite[] sprites = new AnimationSprite[2];
 
         sprites[0] = new AnimationSprite(0, sheet.imageAt(0, 0, 16, 16).getScaledInstance(64, 64, Image.SCALE_DEFAULT), 20);
