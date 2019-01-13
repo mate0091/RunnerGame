@@ -6,11 +6,6 @@ public class SpriteSheet
 {
     private BufferedImage image;
 
-    public SpriteSheet(BufferedImage image)
-    {
-        this.image = image;
-    }
-
     public SpriteSheet(String path)
     {
         this.image = new ImageLoader().load(path);

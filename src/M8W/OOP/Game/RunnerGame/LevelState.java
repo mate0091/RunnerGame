@@ -1,6 +1,7 @@
 package M8W.OOP.Game.RunnerGame;
 
 import M8W.OOP.Game.Engine.*;
+import M8W.OOP.Game.Graphics.ImageLoader;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -11,14 +12,15 @@ public class LevelState extends GameState
 {
     private Player p;
     private ArrayList<Obstacle> obstacles;
-
+    private Image background;
     private Spawner spawner;
-
     private Random random;
 
     public LevelState()
     {
         super();
+
+        background = new ImageLoader().load("/level_background.png").getScaledInstance(GameScreen.WIDTH, GameScreen.HEIGHT, Image.SCALE_DEFAULT);
 
         random = new Random();
 
@@ -27,7 +29,7 @@ public class LevelState extends GameState
         p = new Player();
         obstacles = new ArrayList<Obstacle>();
 
-        spawner = new Spawner(20, 20f, 0.2f, 7, 0.2f);
+        spawner = new Spawner(15, 20f, 0.2f, 10, 0.2f);
     }
 
     @Override
@@ -41,13 +43,16 @@ public class LevelState extends GameState
         if(!obstacles.isEmpty())
         for(Obstacle o : obstacles)
         {
-            obstacleCollision(o);
+            if(o != null) p.collideWithObstacle(o);
         }
 
         p.update();
 
         if(!obstacles.isEmpty())
-        for (Obstacle i : obstacles) i.update();
+        for (Obstacle i : obstacles)
+        {
+            if(i != null) i.update();
+        }
 
         if(!obstacles.isEmpty())
             for (int i = 0; i < obstacles.size(); i++)
@@ -72,8 +77,6 @@ public class LevelState extends GameState
         if(spawner.getIsDone())
         {
             Obstacle o = null;
-
-            System.out.println(spawner.getCurrentSpeed());
 
             int obstacleIndex = random.nextInt(3);
 
@@ -100,31 +103,20 @@ public class LevelState extends GameState
         }
     }
 
-    public void obstacleCollision(GameObject other)
-    {
-        if(p.getBounds().intersects(other.getBounds()))
-        {
-            ScoreManager.getInstance().saveScore();
-            GameStateManager.getInstance().changeState(new MainMenuState());
-        }
-    }
-
     @Override
     public void draw(Graphics g)
     {
+        g.drawImage(background, 0, 0, null);
+
         g.setColor(Color.BLACK);
         g.setFont(new Font("Arial", Font.PLAIN, 35));
-        g.drawString("Score: " + ScoreManager.getInstance().getScore(), 64, 32);
+        g.drawString("Score: " + ScoreManager.getInstance().getScore(), 64, 64);
         g.drawLine(0, 600, GameScreen.WIDTH, 600);
-
-        spawner.getTimer().draw(g);
 
         p.draw(g);
 
         if(!obstacles.isEmpty())
         for (Obstacle i : obstacles)
-            i.draw(g);
-
-        spawner.draw(g);
+            if(i != null) i.draw(g);
     }
 }

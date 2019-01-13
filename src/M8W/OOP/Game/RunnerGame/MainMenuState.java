@@ -62,14 +62,14 @@ public class MainMenuState extends GameState
 
             else g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", Font.PLAIN, 35));
-            g.drawString(texts[i], GameScreen.WIDTH / 2 - 75, GameScreen.HEIGHT / 2 + 220 + 75 * i);
+            g.drawString(texts[i], GameScreen.WIDTH / 2 - 70, GameScreen.HEIGHT / 2 + 220 + 75 * i);
         }
 
         g.setColor(Color.BLACK);
         g.setFont(new Font("Arial", Font.BOLD, 18));
-        g.drawString("Quit anytime by pressing ESC", GameScreen.WIDTH/2 - 150, GameScreen.HEIGHT/2 + 390);
+        g.drawString("Quit game by pressing ESC", GameScreen.WIDTH/2 - 120, GameScreen.HEIGHT/2 + 390);
 
         g.setFont(new Font("Arial", Font.BOLD, 35));
-        g.drawString("Highscore: " + ScoreManager.getInstance().getHighScore(), GameScreen.WIDTH/2 - 100, GameScreen.HEIGHT/2 + 120);
+        g.drawString("Highscore: " + ScoreManager.getInstance().getHighScore(), GameScreen.WIDTH/2 - 110, GameScreen.HEIGHT/2 + 120);
     }
 }

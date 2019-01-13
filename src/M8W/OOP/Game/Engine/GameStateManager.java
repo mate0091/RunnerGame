@@ -1,6 +1,5 @@
 package M8W.OOP.Game.Engine;
 
-import M8W.OOP.Game.Engine.GameState;
 import M8W.OOP.Game.RunnerGame.MainMenuState;
 
 import java.util.Stack;
@@ -41,11 +40,6 @@ public final class GameStateManager
     public void unLoadState()
     {
         statesLoaded.remove(0);
-    }
-
-    public GameState getCurrentState()
-    {
-        return statesLoaded.peek();
     }
 
     public void changeState(GameState state)

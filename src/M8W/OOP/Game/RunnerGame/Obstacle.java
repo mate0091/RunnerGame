@@ -15,7 +15,6 @@ public class Obstacle extends GameObject
     {
         super();
         position.set(GameScreen.WIDTH + 20, 550);
-        collisionBox.setLocation(GameScreen.WIDTH + 20, 550);
         this.velocity = velocity;
         wasJumpedOver = false;
     }

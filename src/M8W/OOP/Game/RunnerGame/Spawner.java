@@ -2,10 +2,8 @@ package M8W.OOP.Game.RunnerGame;
 
 import M8W.OOP.Game.Engine.GameObject;
 import M8W.OOP.Game.Engine.Timer;
-import M8W.OOP.Game.Engine.Transform;
 
 import java.awt.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Spawner extends GameObject
 {
@@ -48,24 +46,17 @@ public class Spawner extends GameObject
             if(currentSpeed < 20)
                 currentSpeed += constantSpeedup;
 
-            if(deltaBetweenObstacles > 3.5f)
+            if(deltaBetweenObstacles > 6f)
                 deltaBetweenObstacles -=  (deltaSpeedup);
 
             timer = new Timer((int) (deltaBetweenObstacles));
         }
     }
 
-    public void draw(Graphics g)
-    {
-
-    }
+    public void draw(Graphics g) {}
 
     public boolean getIsDone() {
         return isDone;
-    }
-
-    public Timer getTimer() {
-        return timer;
     }
 
     public float getCurrentSpeed() {
